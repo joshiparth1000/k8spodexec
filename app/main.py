@@ -4,7 +4,7 @@ import os
 
 from kubernetes import config
 from kubernetes.client import Configuration
-from kubernetes.client.apis import core_v1_api
+from kubernetes.client.api import core_v1_api
 from kubernetes.client.rest import ApiException
 from kubernetes.stream import stream
 import urllib3
@@ -13,7 +13,7 @@ config.load_incluster_config()
 
 configuration = Configuration()
 configuration.verify_ssl = False
-configuration.assert_hostname = False
+# configuration.assert_hostname = False
 urllib3.disable_warnings()
 Configuration.set_default(configuration)
 
