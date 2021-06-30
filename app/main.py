@@ -1,7 +1,8 @@
 import sys
 import os
 
-from kubernetes import config, client, stream
+from kubernetes import config, client
+from kubernetes.stream import stream
 
 config.load_incluster_config()
 
@@ -22,3 +23,5 @@ for x in resp.items:
               command=exec_command,
               stderr=True, stdin=False,
               stdout=True, tty=False)
+
+  print("Response: " + resp)
