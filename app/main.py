@@ -12,8 +12,7 @@ namespace = os.getenv('POD_NAMESPACE')
 resp = api.list_namespaced_pod(namespace=namespace, label_selector=label_selector)
 
 for x in resp.items:
-  print(x)
-  name = x.metadata().name
+  name = x.metadata.name
 
   resp = api.read_namespaced_pod(name=name, namespace=namespace)
 
